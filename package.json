@@ -11,6 +11,9 @@
   "engines": {
     "node": ">=10"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/jbirch8865"
+  },
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
@@ -24,7 +27,16 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "antd": "^4.9.4",
+    "axios": "^0.21.0",
+    "react-redux": "^7.2.2",
+    "reactour": "^1.18.0",
+    "redux-thunk": "^2.3.0",
+    "msal": "1.4.4",
+    "react-aad-msal": "2.3.5",
+    "logrocket": "^1.0.14",
+    "logrocket-react": "^4.0.1"
   },
   "devDependencies": {
     "microbundle-crl": "^0.13.10",
