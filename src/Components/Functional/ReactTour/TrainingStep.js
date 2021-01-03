@@ -4,9 +4,9 @@ import RegisterTrainingStep from './RegisterTrainingStep'
 import { connect } from 'react-redux'
 function StepContent(props) {
   return (
-    <>
+    <React.Fragment>
       <div>{props.title}</div>
-    </>
+    </React.Fragment>
   )
 }
 
@@ -52,7 +52,7 @@ function TrainingStep(props) {
       props.removeTrainingStep(step)
     }
   }, [props.userCompleted, fireUseEffect])
-  return <></>
+  return <React.Fragment></React.Fragment>
 }
 
 const mapDispatchToProps = (dispatch) => {

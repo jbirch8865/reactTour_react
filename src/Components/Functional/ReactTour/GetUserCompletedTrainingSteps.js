@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const GetUserCompletedTrainings = (props) => {
   useEffect(() => props.GetUserCompletedTrainings(), [])
-  return <></>
+  return <React.Fragment></React.Fragment>
 }
 
 const mapDispatchToProps = (dispatch) => {
