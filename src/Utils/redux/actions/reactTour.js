@@ -1,5 +1,5 @@
 import * as Actions from "./actionConstants";
-import { reactTourapi } from "../../api";
+import { axiosapi } from "../../../index";
 export function addTrainingStep(step) {
   return {
     type: Actions.ADD_TRAINING_STEP,
@@ -44,9 +44,40 @@ function setRegisteredTrainings(registeredtrainings) {
     registeredtrainings,
   };
 }
+
+
+function setUserPreferences(userpreferences) {
+  return {
+    type: Actions.GET_USER_PREFERENCES,
+    userpreferences,
+  };
+}
+
+function setUserPreferencesLoading()
+{
+  return {
+    type: Actions.GET_USER_PREFERENCES_LOADING
+  };
+}
+
+
+export function getUserPreferences() {
+  return (dispatch) => {
+    dispatch(setUserPreferencesLoading())
+    axiosapi.get("/userpreferences")
+      .then(function (response) {
+        dispatch(setUserPreferences(response.data.userpreferences))
+        return true
+      })
+  };
+}
+
+
+
+
 export function GetUserCompletedTrainings() {
   return (dispatch) => {
-    Payrollapi.get("/reacttour/usercompletedtrainingsteps")
+    axiosapi.get("/reacttour/usercompletedtrainingsteps")
       .then(function (response) {
         dispatch(setUserCompletedTrainings(response.data.usercompletedtrainingsteps))
         return true
@@ -60,7 +91,7 @@ export function GetUserCompletedTrainings() {
 
 export function getRegisteredTrainings() {
   return (dispatch) => {
-    reactTourapi.get("/reacttour/trainingsteps")
+    axiosapi.get("/reacttour/trainingsteps")
       .then(function (response) {
         dispatch(setRegisteredTrainings(response.data.trainingsteps))
         return true
@@ -74,7 +105,7 @@ export function getRegisteredTrainings() {
 
 export function CompleteUserTraining(name) {
   return dispatch => {
-    reactTourapi.post("/reacttour/usercompletedtrainingsteps",{name}).then(function (response) {
+    axiosapi.post("/reacttour/usercompletedtrainingsteps",{name}).then(function (response) {
     }).catch(function (error) {});
   }
 }

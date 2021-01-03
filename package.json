@@ -1,8 +1,8 @@
 {
-  "name": "reacttour",
-  "version": "1.0.0",
+  "name": "@jbirch8865/reacttour",
+  "version": "1.0.4",
   "description": "training steps used with jbirch8865 laravel backends",
-  "author": "jbirch8865",
+  "author": "Joel Birch",
   "license": "MIT",
   "repository": "jbirch8865/reacttour_react",
   "main": "dist/index.js",
@@ -11,12 +11,9 @@
   "engines": {
     "node": ">=10"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/jbirch8865"
-  },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "build": "microbundle-crl --no-compress --format modern,cjs --jsxFragment React.Fragment",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs --jsxFragment React.Fragment",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -27,16 +24,15 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-css-theme-switcher": "^0.1.6",
+    "react-dom": "^17.0.1",
     "antd": "^4.9.4",
     "axios": "^0.21.0",
     "react-redux": "^7.2.2",
     "reactour": "^1.18.0",
-    "redux-thunk": "^2.3.0",
-    "msal": "1.4.4",
-    "react-aad-msal": "2.3.5",
-    "logrocket": "^1.0.14",
-    "logrocket-react": "^4.0.1"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "microbundle-crl": "^0.13.10",
@@ -55,9 +51,15 @@
     "gh-pages": "^2.2.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-css-theme-switcher": "^0.1.6",
+    "react-dom": "^17.0.1",
+    "antd": "^4.9.4",
+    "axios": "^0.21.0",
+    "react-redux": "^7.2.2",
+    "reactour": "^1.18.0",
+    "redux-thunk": "^2.3.0"
   },
   "files": [
     "dist"

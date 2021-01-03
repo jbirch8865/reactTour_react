@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import * as actions from './Utils/redux/actions/reactTour'
+import * as actions from '../../../Utils/redux/actions/reactTour'
 import RegisterTrainingStep from './RegisterTrainingStep'
 import { connect } from 'react-redux'
 function StepContent(props) {

@@ -1,7 +1,7 @@
 import * as Actions from "../actions/actionConstants";
 import initialState from "../initialState";
 
-export default function ApiReducer(state = initialState, action) {
+export default function apiReducer(state = initialState, action) {
   switch (action.type) {
     case Actions.GET_USER_PREFERENCES_LOADING:
         return { ...state, loading:true};

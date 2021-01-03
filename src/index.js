@@ -1,16 +1,22 @@
 import React from 'react'
-import styles from './styles.module.css'
+import SubTourWrapper from './Components/Presentation/ReactTour/TourWrapper'
+import { Provider } from 'react-redux'
 import configureStore from './Utils/redux/configureStore'
-import SubTrainingStep from './TrainingStep'
+import InitialLoad from './InitialLoad'
+import SubTrainingStep from './Components/Functional/ReactTour/TrainingStep'
 export const store = configureStore()
 
-export const TrainingStep = (props) => {
+export let axiosapi = null
+export default function TourWrapper(props) {
+  axiosapi = props.api
   return (
-    <SubTrainingStep
-      trainingName={props.trainingName}
-      trainingImportance={props.trainingImportance}
-      stepInteraction={props.stepInteraction}
-      title={props.title}
-    />
+    <Provider store={store}>
+      <InitialLoad />
+      <SubTourWrapper />
+    </Provider>
   )
+}
+
+export function TrainingStep(props) {
+  return <SubTrainingStep />
 }

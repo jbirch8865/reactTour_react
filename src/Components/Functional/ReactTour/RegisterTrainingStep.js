@@ -1,6 +1,6 @@
-import { reactTourapi } from './Utils/api'
+import { axiosapi } from '../../../index'
 import GetUserCompletedTrainings from './GetUserCompletedTrainingSteps'
-import { store } from './index'
+import { store } from '../../../index'
 
 function getStore() {
   const state = store.getState()
@@ -10,7 +10,7 @@ export default function RegisterTrainingStep(name, importance) {
   Array.isArray(getStore().trainingSteps.registered)
     ? getStore().trainingSteps.registered.filter((step) => step.name === name)
         .length === 0 &&
-      reactTourapi
+      axiosapi
         .post('/reacttour/trainingsteps', {
           name,
           importance
@@ -18,8 +18,6 @@ export default function RegisterTrainingStep(name, importance) {
         .then(function (response) {
           GetUserCompletedTrainings()
         })
-        .catch(function (error) {
-        })
+        .catch(function (error) {})
     : setTimeout(() => RegisterTrainingStep(name), 300)
-  return <></>
 }
